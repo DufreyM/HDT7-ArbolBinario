@@ -7,8 +7,7 @@ public class BinaryTreeTest {
     @Test
     public void testInsertionAndInorderTraversal() {
         BinaryTree<Integer, String> tree = new BinaryTree<>();
-        
-        // Insertar elementos en el árbol
+      
         tree.insert(new Association<>(5, "apple"));
         tree.insert(new Association<>(3, "banana"));
         tree.insert(new Association<>(7, "orange"));
@@ -17,13 +16,10 @@ public class BinaryTreeTest {
         tree.insert(new Association<>(6, "lemon"));
         tree.insert(new Association<>(8, "pear"));
         
-        // Realizar recorrido inorder
         List<Association<Integer, String>> inorderList = tree.inorderTraversal();
         
-        // Verificar el tamaño del recorrido inorder
         Assertions.assertEquals(7, inorderList.size());
         
-        // Verificar el orden correcto del recorrido inorder
         Assertions.assertEquals(2, inorderList.get(0).getKey());
         Assertions.assertEquals(3, inorderList.get(1).getKey());
         Assertions.assertEquals(4, inorderList.get(2).getKey());
