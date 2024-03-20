@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.List;
 
 public class Dictionary {
     private BinaryTree<String, String> dictionary;
