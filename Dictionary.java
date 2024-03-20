@@ -15,10 +15,14 @@ public class Dictionary {
             while ((line = br.readLine()) != null) {
                 line = line.trim();
                 if (!line.isEmpty()) {
-                    String[] pair = line.split(",");
-                    String key = pair[0].trim().substring(1);
-                    String value = pair[1].trim().substring(0, pair[1].length()-2);
-                    dictionary.insert(new Association<>(key.toLowerCase(), value.toLowerCase()));
+                    // Dividir la línea en el primer "," encontrado
+                    String[] pair = line.split(",", 2);
+                    if (pair.length == 2) {
+                        // Eliminar los paréntesis y espacios alrededor de las claves y valores
+                        String key = pair[0].trim().substring(1);
+                        String value = pair[1].trim().substring(0, pair[1].trim().length() - 1);
+                        dictionary.insert(new Association<>(key.toLowerCase(), value.toLowerCase()));
+                    }
                 }
             }
         } catch (IOException e) {
@@ -54,5 +58,4 @@ public class Dictionary {
     public BinaryTree<String, String> getBinaryTree() {
         return dictionary;
     }
-
 }
